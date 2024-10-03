@@ -17,6 +17,7 @@ interface SelectedColumnsState {
 type Props = {
   data: string[][];
   onCancel: () => void;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   onSubmit: (data: any) => void;
 };
 

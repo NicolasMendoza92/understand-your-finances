@@ -37,6 +37,7 @@ export const PieVariant = ({ data }: Props) => {
         verticalAlign="bottom"
         align="right"
         iconType="circle"
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         content={({payload}:any) => {
             return(
                 <ul className="flex flex-col space-y-2">

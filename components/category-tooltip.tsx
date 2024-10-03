@@ -1,6 +1,7 @@
 import { formatCurrency } from "@/lib/utils";
 import { Separator } from "./ui/separator";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const CategoryTooltip = ({ active, payload }: any) => {
   if (!active) return null;
 
