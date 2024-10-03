@@ -19,7 +19,7 @@ export const UseBulkDeleteCategories = () => {
       toast.success("Categoria borrada ");
       // esto es como un refecth cada vez que se crea una cuenta nueva
       queryClient.invalidateQueries({ queryKey: ["categories"] });
-    //   TODO: invalidar el resumen
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       toast.error("Falla al borrar la categoria");

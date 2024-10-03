@@ -19,7 +19,7 @@ export const useBulkCreateTransactions = () => {
       toast.success("Transacciones creadas ");
       // esto es como un refecth cada vez que se crea una cuenta nueva
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
-    //   TODO: invalidar el resumen
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       toast.error("Falla al subir las transacciones");

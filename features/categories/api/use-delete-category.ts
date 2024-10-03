@@ -21,9 +21,10 @@ export const useDeleteCategory = (id?: string) => {
     onSuccess: () => {
       toast.success("Categoria borrada");
       // esto es como un refecth cada vez que se crea una cuenta nueva
-      queryClient.invalidateQueries({ queryKey: ["categories", { id }] });
+      queryClient.invalidateQueries({ queryKey: ["category", { id }] });
       queryClient.invalidateQueries({ queryKey: ["categories"] });
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       toast.error("Falla al borrar la categoria");

@@ -27,6 +27,7 @@ export const useEditTransaction = (id?: string) => {
       // esto es como un refecth cada vez que se crea una cuenta nueva
       queryClient.invalidateQueries({ queryKey: ["transaction", { id }] });
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       toast.error("Falla al editar la transaccion");

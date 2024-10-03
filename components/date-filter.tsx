@@ -25,14 +25,13 @@ export const DateFilter = () => {
 
   const defaultTo = new Date();
   const defaultFrom = subDays(defaultTo, 30);
-  console.log(defaultTo, defaultFrom)
 
   const paramState = {
     from: from ? new Date(from) : defaultFrom,
     to: to ? new Date(to) : defaultTo,
   };
-
   console.log({paramState})
+  console.log(formatDateRange(paramState))
   
   const [date, setDate] = useState<DateRange | undefined>(paramState);
 
