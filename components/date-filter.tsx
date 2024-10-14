@@ -30,8 +30,7 @@ export const DateFilter = () => {
     from: from ? new Date(from) : defaultFrom,
     to: to ? new Date(to) : defaultTo,
   };
-  console.log({paramState})
-  console.log(formatDateRange(paramState))
+
   
   const [date, setDate] = useState<DateRange | undefined>(paramState);
 
@@ -73,7 +72,7 @@ export const DateFilter = () => {
           <ChevronDown className="ml-2 size-4 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="lg:w-auto w-full p-0 " align="start">
+      <PopoverContent className="lg:w-auto w-full p-0 " >
         <Calendar
           disabled={false}
           initialFocus

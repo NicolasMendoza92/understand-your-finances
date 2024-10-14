@@ -30,12 +30,12 @@ export const DatePicker = ({ value, onChange, disabled }: Props) => {
           {value ? format(value, "PPP") : <span>Selecciona fecha</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent >
         <Calendar
           mode="single"
           selected={value}
           onSelect={onChange}
-          disabled={disabled}
+          disabled={false}
           initialFocus
         />
       </PopoverContent>

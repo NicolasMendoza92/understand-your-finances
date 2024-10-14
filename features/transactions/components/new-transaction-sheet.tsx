@@ -18,6 +18,7 @@ import { TransactionForm } from "./transaction-form";
 import { Loader2 } from "lucide-react";
 import { useGetCategories } from "@/features/categories/api/use-get-categories";
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const formSchema = insertTransactionSchema.omit({
   id: true,
 });
