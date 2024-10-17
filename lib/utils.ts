@@ -10,7 +10,15 @@ export function convertAmountToMiliunits(amount: number) {
   return Math.round(amount * 1000);
 }
 
-export function convertAmountFromMiliunits(amount: number) {
+export function convertAmountFromMiliunits(amount: number | string): string {
+  const parsedAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+  if (isNaN(parsedAmount)) {
+    throw new Error("Invalid amount"); // Maneja valores no válidos
+  }
+  return (parsedAmount / 1000).toFixed(2);
+}
+
+export function convertAmountFromMiliunitsAnto(amount: number) {
   return amount / 1000;
 }
 

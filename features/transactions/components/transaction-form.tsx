@@ -16,7 +16,7 @@ import { insertTransactionSchema } from "@/db/schema";
 import { Select } from "@/components/select";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { convertAmountToMiliunits } from "@/lib/utils";
+
 
 const formSchema = z.object({
   date: z.coerce.date(),
@@ -65,7 +65,7 @@ export const TransactionForm = ({
 
   const handleSubmit = (values: FormValues) => {
     const amount = parseFloat(values.amount)
-    const amountInMiliunits = convertAmountToMiliunits(amount);
+    const amountInMiliunits = (amount * 1000).toFixed(2);
 
     onSubmit({
       ...values,

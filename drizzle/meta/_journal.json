@@ -43,6 +43,13 @@
       "when": 1727648762117,
       "tag": "0005_past_rafael_vega",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1729197550440,
+      "tag": "0006_amazing_lifeguard",
+      "breakpoints": true
     }
   ]
 }

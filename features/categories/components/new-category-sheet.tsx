@@ -14,6 +14,7 @@ import { insertCategorySchema } from "@/db/schema";
 import { CategoryForm } from "./category-form";
 import { useNewCategory } from "../hooks/use-new-category";
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const formSchema = insertCategorySchema.pick({
   name: true,
 });

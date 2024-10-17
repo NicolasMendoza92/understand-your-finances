@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { client } from "@/lib/hono";
 import { useSearchParams } from "next/navigation";
-import { convertAmountFromMiliunits } from "@/lib/utils";
+import { convertAmountFromMiliunitsAnto } from "@/lib/utils";
 
 
 // traigo siempre la data del conectado.
@@ -32,17 +32,17 @@ export const useGetSummary = () => {
       const { data } = await response.json();
       return {
         ...data,
-        incomeAmount: convertAmountFromMiliunits(data.incomeAmount),
-        expensesAmount: convertAmountFromMiliunits(data.expensesAmount),
-        remainingAmount: convertAmountFromMiliunits(data.remainingAmount),
+        incomeAmount: convertAmountFromMiliunitsAnto(data.incomeAmount),
+        expensesAmount: convertAmountFromMiliunitsAnto(data.expensesAmount),
+        remainingAmount: convertAmountFromMiliunitsAnto(data.remainingAmount),
         categories: data.categories.map((category) => ({
             ...category,
-            value: convertAmountFromMiliunits(category.value)
+            value: convertAmountFromMiliunitsAnto(category.value)
         })),
         days: data.days.map((day) => ({
             ...day,
-            income: convertAmountFromMiliunits(day.income),
-            expenses: convertAmountFromMiliunits(day.expenses),
+            income: convertAmountFromMiliunitsAnto(day.income),
+            expenses: convertAmountFromMiliunitsAnto(day.expenses),
         }))
       };
     },
