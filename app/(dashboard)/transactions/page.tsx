@@ -5,7 +5,7 @@ import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
+// import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { useState } from "react";
@@ -15,6 +15,8 @@ import { transactions as transactionSchema } from "@/db/schema";
 import { useSelectAccount } from "@/features/accounts/hooks/use-select-account";
 import { toast } from "sonner";
 import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions";
+import { useRouter } from "next/navigation";
+
 
 
 enum VARIANTS {
@@ -32,6 +34,7 @@ const TransactionsPage = () => {
   const [ConfirmDialog, confirm] = useSelectAccount();
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
+  const router = useRouter();
 
   const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
     setImportResults(results);
@@ -43,7 +46,7 @@ const TransactionsPage = () => {
     setVariant(VARIANTS.LIST);
   };
 
-  const newTransaction = useNewTransaction();
+  // const newTransaction = useNewTransaction();
   const createTransactions = useBulkCreateTransactions();
   const deleteTransactions = useBulkDeleteTransactions();
   const transactionsQuery = useGetTransactions();
@@ -110,7 +113,8 @@ const TransactionsPage = () => {
           </CardTitle>
           <div className="flex flex-col lg:flex-row gap-y-2 items-center gap-x-2">
             <Button
-              onClick={newTransaction.onOpen}
+              // onClick={newTransaction.onOpen}
+              onClick={() => router.push("/transactions/new")}
               size={"sm"}
               className="w-full lg:w-auto"
             >

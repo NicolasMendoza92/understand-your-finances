@@ -10,7 +10,8 @@ import {
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useConfirm } from "@/app/hooks/use-confirm";
 import { useDeleteTransaction } from "@/features/transactions/api/use-delete-transaction";
-import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
+// import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
+import { useRouter } from "next/navigation";
 
 type Props = {
   id: string;
@@ -19,12 +20,18 @@ type Props = {
 export const Actions = ({ id }: Props) => {
   const [ConfirmDialog, confirm] = useConfirm("Estas seguro?", "El movimiento sera eliminado");
   const deleteMutation = useDeleteTransaction(id);
-  const { onOpen } = useOpenTransaction();
+  const router = useRouter(); // Define el router
+  // const { onOpen } = useOpenTransaction();
+
   const handleDelete = async () => {
     const ok = await confirm();
     if(ok){
         deleteMutation.mutate();
     }
+  };
+
+  const handleEdit = () => {
+    router.push(`/transactions/${id}/edit`); // Redirige a la página de edición
   };
   return (
     <div>
@@ -36,7 +43,7 @@ export const Actions = ({ id }: Props) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem disabled={deleteMutation.isPending} onClick={() => onOpen(id)}>
+          <DropdownMenuItem disabled={deleteMutation.isPending} onClick={handleEdit}>
             <Edit className="size-4 mr-2" /> Editar
           </DropdownMenuItem>
           <DropdownMenuItem disabled={deleteMutation.isPending} onClick={handleDelete}>
