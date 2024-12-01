@@ -144,7 +144,7 @@ export const TransactionForm = ({
             <FormItem>
               <FormLabel>Destinatario</FormLabel>
               <FormControl>
-                <Input {...field} disabled={disabled} placeholder="Ej: Bancos, Mercado pago, otro"  />
+                <Input {...field} disabled={disabled} placeholder="Ej: Bancos, Mercado pago, otro" className="text-base"   />
               </FormControl>
             </FormItem>
           )}
@@ -168,7 +168,7 @@ export const TransactionForm = ({
             <FormItem>
               <FormLabel> Notas </FormLabel>
               <FormControl>
-                <Textarea {...field} value={field.value ?? ""} disabled={disabled} placeholder="Notas adicionales"  />
+                <Textarea {...field} value={field.value ?? ""} disabled={disabled} placeholder="Notas adicionales"  className="text-base" />
               </FormControl>
             </FormItem>
           )}

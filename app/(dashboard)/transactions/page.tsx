@@ -68,7 +68,7 @@ const TransactionsPage = () => {
       ...value,
       accountId: accountId as string,
     }));
-
+    
     createTransactions.mutate(data, {
       onSuccess: () => {
         onCancelImport();

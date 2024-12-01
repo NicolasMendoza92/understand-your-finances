@@ -1,1 +1,0 @@
-ALTER TABLE "accounts" ALTER COLUMN "role" SET NOT NULL;
